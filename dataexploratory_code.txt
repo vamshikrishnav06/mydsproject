@@ -55,13 +55,13 @@ class unibi():
         
         
 
-#calling for univariate
+#calling for univariate for continues variables
 uni= unibi(data1,'m1')
 uni.univar(data1,'m1')
 
 
 
-#calling for bivariate
+#calling for bivariate for continues variables
 bi= unibi(data1,['m1','m2'])
 bi.multi(data1,['m1','m2'])
 
