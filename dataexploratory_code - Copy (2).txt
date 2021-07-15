@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-# the  cell also works for uni,biand cathist analysis
+# the code in this cell also works for uni,biand cathist analysis
 #but it is only definition
 # i wrote both the codes which is definiton and class you can see in the below cells
 
