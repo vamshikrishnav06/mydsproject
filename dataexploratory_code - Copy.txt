@@ -1,0 +1,74 @@
+#importing the required packages for the uni ,bi,cat analysis
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+
+# the code in this cell also works for uni,biand cathist analysis
+#but it is only definition
+# i wrote both the codes which is definiton and class you can see in the below cells
+
+def uni_biv(data,var):
+    if(data[var[0]].dtype == np.float64 or data[var[0]].dtype == np.int64):
+        if len(var)==1:
+            data[var].hist()
+            um=plt.plot()
+        else:
+            um=data.plot.scatter(x=var[0],y=var[1])
+    else:
+        var1= ''.join(map(str,var))
+        um=data[var1].value_counts().sort_index().plot.bar()
+    return um
+
+
+
+#guide to call definition
+#for categorical barcharts
+var=['financial_institution']
+uni_biv(data1,var)
+
+#for univariate call
+var=['m1']
+uni_biv(data1,var)
+
+#for bivariate call
+var=['m1','m2']
+uni_biv(data1,var)
+
+
+# by using class methods
+class unibi():
+    
+    def __init__(self,data,var):
+        self.data=data
+        self.var=var
+    
+    def univar(self,data,var):
+        data[var].hist()
+        self.un=plt.plot()
+    
+    def multi(self,data,var):
+        self.bi=data.plot.scatter(x=var[0],y=var[1])
+    
+    def cathist(self,data,var):
+        self.caun=data[var].value_counts().sort_index().plot.bar()
+        
+        
+
+#calling for univariate for continues variables
+uni= unibi(data1,'m1')
+uni.univar(data1,'m1')
+
+
+
+#calling for bivariate for continues variables
+bi= unibi(data1,['m1','m2'])
+bi.multi(data1,['m1','m2'])
+
+
+
+
+
+#calling for categorical univariate like value count representing in barcharts
+cati= unibi(data1,'financial_institution')
+cati.cathist(data1,'financial_institution')
